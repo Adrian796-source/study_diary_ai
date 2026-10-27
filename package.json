@@ -1,0 +1,9 @@
+{
+  "name": "diario-de-estudio",
+  "version": "1.0.0",
+  "description": "Diario de estudio",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}

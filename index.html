@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diario de Estudio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Diario de Estudio</h1>
+      <p class="subtitle">Construye constancia cada día</p>
+    </header>
+
+    <section class="metrics-grid">
+      <div class="metric-card metric-streak">
+        <span class="metric-value" id="streak">0</span>
+        <span class="metric-label">Racha actual 🔥</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-value" id="bestStreak">0</span>
+        <span class="metric-label">Mejor racha 🏆</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-value" id="weekMinutes">0 min</span>
+        <span class="metric-label">Esta semana ⏱️</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-value" id="monthDays">0 días</span>
+        <span class="metric-label">Este mes 📅</span>
+      </div>
+    </section>
+
+    <section class="goal-section">
+      <div class="goal-header">
+        <h2>Objetivo semanal</h2>
+        <button id="editGoalBtn" class="btn-clear" type="button">Fijar objetivo</button>
+      </div>
+      <div class="goal-content">
+        <div class="goal-info">
+          <span id="goalText">Progreso: 0 / 0 min</span>
+          <span id="goalPercentage">0%</span>
+        </div>
+        <div class="progress-bar-container">
+          <div id="goalProgressBar" class="progress-bar-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+      <div id="goalFormContainer" class="goal-form-container hidden">
+        <form id="goalForm" class="goal-form">
+          <label class="form-group">
+            Minutos objetivo por semana
+            <input type="number" id="goalInput" min="1" placeholder="Ej.: 180" required>
+          </label>
+          <div class="goal-form-actions">
+            <button type="submit" class="btn-submit">Guardar</button>
+            <button type="button" id="cancelGoalBtn" class="btn-clear">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="heatmap-section">
+      <div class="heatmap-header">
+        <h2>Actividad reciente</h2>
+      </div>
+      <div class="heatmap-wrapper">
+        <div id="heatmapContainer" class="heatmap-container"></div>
+      </div>
+      <div id="heatmapTooltip" class="heatmap-tooltip hidden"></div>
+    </section>
+
+    <form id="sessionForm" class="session-form">
+      <h2>Registrar sesión</h2>
+      <div class="form-grid">
+        <label class="form-group">
+          Fecha
+          <input type="date" id="date" required>
+        </label>
+        <label class="form-group">
+          Tema
+          <input type="text" id="topic" placeholder="Ej.: Álgebra lineal o React" required>
+        </label>
+        <label class="form-group">
+          Minutos
+          <input type="number" id="minutes" min="1" placeholder="Ej.: 45" required>
+        </label>
+      </div>
+      <button type="submit" class="btn-submit">Guardar sesión</button>
+    </form>
+
+    <section class="history-section">
+      <div class="history-header">
+        <h2>Sesiones registradas</h2>
+        <button id="clearDataBtn" class="btn-clear" type="button" title="Borrar todas las sesiones">Reiniciar diario</button>
+      </div>
+      <ul id="sessionList"></ul>
+      <div id="emptyState" class="empty-state hidden">
+        <p>No hay sesiones registradas todavía. ¡Empieza añadiendo tu primera sesión arriba!</p>
+      </div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
